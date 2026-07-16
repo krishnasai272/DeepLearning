@@ -1,0 +1,41 @@
+import pandas as pd
+from sklearn.tree import DecisionTreeClassifier
+
+# Dataset
+data = {
+    'Time': [1, 2, 3, 4, 5, 6],
+    'Battery Charge': [12, 24, 36, 48, 60, 71]
+}
+df = pd.DataFrame(data)
+
+# Convert to classification
+df['Label'] = df['Battery Charge'].apply(lambda x: 0 if x < 50 else 1)
+
+# Train model
+X = df[['Time']]
+y = df['Label']
+
+model = DecisionTreeClassifier()
+model.fit(X, y)
+
+#  input from user
+time_input = float(input("Enter Time: "))
+
+# Predict
+predicted = model.predict([[time_input]])[0]
+
+print("Predicted Label (0=Low, 1=High):", predicted)
+
+# Ask user for actual value
+actual = int(input("Enter Actual Label (0=Low, 1=High): "))
+
+if predicted == actual:
+    print("Result: ✅ Correct Prediction")
+else:
+    print("Result: ❌ Wrong Prediction")
+
+# Accuracy for single input
+accuracy = 1 if predicted == actual else 0
+error = 1 - accuracy
+print("Accuracy:", accuracy)
+print("Error:", error)
