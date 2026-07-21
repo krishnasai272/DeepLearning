@@ -1,0 +1,122 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOFatUoRq6UOmztQvX1ULdI",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/krishnasai272/DeepLearning/blob/main/LINEAR%20REGRESSION\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "bCt9W6fmzyHm",
+        "outputId": "b28ff5d2-3ebb-4c11-c333-acff66240868"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[0.33333333]\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "/usr/local/lib/python3.12/dist-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LinearRegression was fitted with feature names\n",
+            "  warnings.warn(\n"
+          ]
+        }
+      ],
+      "source": [
+        "#LINEAR REGRESSION\n",
+        "\n",
+        "import pandas as pd\n",
+        "from sklearn.linear_model import LinearRegression\n",
+        "#Dataset\n",
+        "data={\n",
+        "    'Time':[1,2,3,4,5,6],\n",
+        "    'Battery Charge':[12,24,36,48,60,71]\n",
+        "}\n",
+        "df=pd.DataFrame(data)\n",
+        "X=df[['Time']]\n",
+        "Y=df['Battery Charge']\n",
+        "#Create Model\n",
+        "model=LinearRegression()\n",
+        "model.fit(X,Y)\n",
+        "prediction=model.predict([[0]])\n",
+        "print(prediction)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "from sklearn.linear_model import LinearRegression\n",
+        "#Dataset\n",
+        "data={\n",
+        "    'Hours':[1,2,3,4,5,6],\n",
+        "    'Marks':[35,45,55,65,75,85]\n",
+        "}\n",
+        "df=pd.DataFrame(data)\n",
+        "X=df[['Hours']]\n",
+        "Y=df['Marks']\n",
+        "#Create Model\n",
+        "model=LinearRegression()\n",
+        "model.fit(X,Y)\n",
+        "prediction=model.predict([[7]])\n",
+        "print(prediction)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "fsTmqjvzz_AY",
+        "outputId": "1073bc2b-1dfa-4075-f694-df852f05205e"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[95.]\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "/usr/local/lib/python3.12/dist-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LinearRegression was fitted with feature names\n",
+            "  warnings.warn(\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
